@@ -27,26 +27,36 @@ Acknowledgment: The measured building-response data used in this study were obta
 ## 📁 Repository Structure
 
 ```
-KD-TL-Seismic-Response-Comparison
+KD-TL-Seismic-Response-Prediction
 │
 ├── data/
 │ ├── building_response_testset.csv # Test set (input features and ground-truth responses)
-│ ├── pretrained_model_results.csv # Metrics: r, R², MSE for the pretrained model
-│ ├── direct_transferred_model_results.csv # Metrics for directly transferred pretrained model
-│ ├── kd_based_tl_model_results.csv # Metrics for KD-based TL model
-│ ├── direct_training_baseline_results.csv # Metrics for direct-training baseline model
 │ └── metrics_summary.csv # Combined summary file for plotting
 │
 ├── models/
 │ ├── pretrained_model.pth # Pretrained model weights
-│ ├── direct_transferred_model.pth # Directly transferred model weights
-│ ├── kd_based_tl_model.pth # KD-based TL model weights
-│ └── direct_training_baseline.pth # Direct-training baseline weights
+│ ├── direct_transferred_model # Directly transferred model weights
+│  ├── k1.pth # the models trained in folds 1–5
+│  ├── k2.pth
+│  ├── k3.pth
+│  ├── k4.pth
+│  └── k5.pth
+│ ├── kd_based_tl_model # KD-based TL model weights
+│  ├── k1.pth # the models trained in folds 1–5
+│  ├── k2.pth
+│  ├── k3.pth
+│  ├── k4.pth
+│  └── k5.pth
+│ └── direct_training_baseline # Direct-training baseline weights
+│  ├── k1.pth # the models trained in folds 1–5
+│  ├── k2.pth
+│  ├── k3.pth
+│  ├── k4.pth
+│  └── k5.pth
 │
 ├── scripts/
 │ ├── evaluate_models.py # Compute r, R², and MSE metrics from test data
-│ ├── plot_fig9.py # Generate Figure 9 comparison plot
-│ └── utils.py # Data-loading and helper functions
+│ └── plot_fig9.py # Generate Figure 9 comparison plot
 │
 ├── figures/
 │ └── Fig9_model_comparison.png # Output figure (bar chart comparison)
@@ -61,7 +71,7 @@ KD-TL-Seismic-Response-Comparison
 ### 1. Install Dependencies
 This repository requires Python ≥ 3.8 and the following packages:
 ```bash
-pip install numpy pandas matplotlib seaborn scikit-learn
+pip install numpy pandas matplotlib seaborn scikit-learn torch
 ```
 ### 2. Evaluate or Load Results
 To recompute the model performance metrics (r, R², MSE):
@@ -69,7 +79,7 @@ To recompute the model performance metrics (r, R², MSE):
 ```bash
 python scripts/evaluate_models.py
 ```
-This script uses data/building_response_testset.csv for evaluation and saves results to the corresponding model result files in data/.
+This script uses data/building_response_testset.csv for evaluation and saves results to the corresponding model result files in data/metrics_summary.csv.
 
 ### 3. Generate Figure 9
 ```bash
@@ -87,7 +97,9 @@ Figure 9 illustrates the comparative performance of four models using color-co
 🟥 Brown|	KD-based TL model|	Knowledge-distillation-enhanced transfer model|
 |🟧 Orange|	Direct-training baseline model|	Model trained from scratch on target data|
 
-Metric bars correspond to:r — Pearson correlation coefficient
+Metric bars correspond to:
+
+r — Pearson correlation coefficient
 R² — Coefficient of determination
 MSE — Mean squared error
 
