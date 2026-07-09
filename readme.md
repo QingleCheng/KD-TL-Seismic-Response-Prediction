@@ -5,6 +5,7 @@
 This repository provides the open-source trained models, code, and data used in our paper. It includes an example demonstration showing how to run the provided scripts to reproduce Figure 9, which compares the predictive performance of four seismic response models in terms of their correlation coefficient (r), coefficient of determination (R²), and mean squared error (MSE). The overall methodological framework is illustrated in Figure 1, and the full project—including model documentation and extended tools—will be released upon paper acceptance.
 
 Acknowledgment: The measured building-response data used in this study were obtained from the Center for Engineering Strong Motion Data (CESMD) database.
+
 ![Framework](/figures/framework.png)
 ---
 
