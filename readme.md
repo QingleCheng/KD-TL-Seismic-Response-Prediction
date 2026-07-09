@@ -5,7 +5,7 @@
 This repository provides the open-source trained models, code, and data used in our paper. It includes an example demonstration showing how to run the provided scripts to reproduce Figure 9, which compares the predictive performance of four seismic response models in terms of their correlation coefficient (r), coefficient of determination (R²), and mean squared error (MSE). The overall methodological framework is illustrated in Figure 1, and the full project—including model documentation and extended tools—will be released upon paper acceptance.
 
 Acknowledgment: The measured building-response data used in this study were obtained from the Center for Engineering Strong Motion Data (CESMD) database.
-
+![Framework](/figures/framework.png)
 ---
 
 ## 📊 Included Models
@@ -116,9 +116,20 @@ Users are encouraged to reuse and extend this code for research and educational 
 ## 🧠 Citation
 If you use this repository, please cite our paper:
 
-A knowledge distillation-based transfer learning framework for peak seismic response prediction of urban building clusters
-
-Submitted to Engineering Structures, 2026.
+```
+@article{CHENG2026123348,
+title = {A knowledge distillation-based transfer learning framework for peak seismic response prediction of urban building clusters},
+journal = {Engineering Structures},
+volume = {366},
+pages = {123348},
+year = {2026},
+issn = {0141-0296},
+doi = {https://doi.org/10.1016/j.engstruct.2026.123348},
+url = {https://www.sciencedirect.com/science/article/pii/S0141029626012629},
+author = {Qingle Cheng and Xiangchi Meng and Haotian Ren and Xinzheng Lu},
+keywords = {Seismic response of building clusters, Transfer learning, Knowledge distillation, Measured–simulation data fusion, Cross-domain prediction}
+}
+```
 
 ## 📞 Contact
 For questions, collaborations, or bug reports, please contact:
